@@ -4,7 +4,7 @@ body {
 
 .header-nightsky {
     color: #ffffff;
-    background: url("http://wallpapers-hd-wide.com/wp-content/uploads/2016/01/fitness-bodybuilding-gym-1920x1080.jpg") no-repeat;
+    background: url("https://images5.alphacoders.com/711/thumb-1920-711085.jpg") no-repeat;
     background-size: cover;
     background-position: bottom;
     padding-bottom: 100px;
@@ -84,7 +84,7 @@ body {
 
 
 .header-nightsky .hero p {
-    color: #efefef;
+    color: #efefe;
     font-size: 22px;
     max-width: 660px;
     margin: 0 auto 20px;
@@ -137,4 +137,46 @@ body {
     .header-nightsky .hero h1{
         font-size: 42px;
     }
+}
+.no-padding {
+  padding: 3px;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  padding: 10px 30px;
+}
+
+select#time {
+  font-size: 16px;
+  color: grey;
+  background-image: url("http://icons.iconarchive.com/icons/graphicloads/flat-finance/256/timer-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid #DADADA;
+  background-position: 6px;
+  padding-left: 60px;
+}
+
+select#target {
+  font-size: 16px;
+  color: grey;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Circle-icons-focus.svg/2000px-Circle-icons-focus.svg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 6px;
+  padding-left: 60px;
+}
+
+select#space {
+  font-size: 16px;
+  color: grey;
+  background-image: url("http://mcconkeyrealestate.com/wp-content/uploads/2016/02/favicon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 6px;
+  padding-left: 60px;
+}
+
+.dropdown-menu>li>a {
+    padding: 20px!important;
 }
