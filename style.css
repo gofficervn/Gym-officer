@@ -1,0 +1,18 @@
+#list {
+  color: white;
+margin-left: 300px;
+  list-style-type: none;
+  font-family: 'Montserrat', sans-serif;
+}
+#head {
+font-family:'Montserrat', sans-serif;
+  text-align: center;
+}
+#row {
+  margin-left: 430px;
+
+}
+body{
+background:linear-gradient(135deg, #172a74, #21a9af); 
+  background-color:#184e8e;
+}
