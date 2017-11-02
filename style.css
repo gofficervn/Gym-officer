@@ -13,6 +13,7 @@ font-family:'Montserrat', sans-serif;
 
 }
 body{
-background:linear-gradient(135deg, #172a74, #21a9af); 
-  background-color:#184e8e;
+background:linear-gradient(135deg, #172a74, #21a9af);
+  background-image: url('https://images5.alphacoders.com/711/thumb-1920-711085.jpg');
+
 }
