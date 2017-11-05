@@ -2,7 +2,7 @@
   color: white;
   margin-left: 300px;
   list-style-type: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #head {
@@ -16,7 +16,7 @@
 
 body {
   background: linear-gradient(135deg, #172a74, #21a9af);
-  background-image: url('http://vajno-znat.com/wp-content/uploads/2016/03/shtanga.jpg');
+  background-image: url('https://zmp3-photo.zadn.vn/covers/3/e/3e41bb2fa76c04460bc709dc46fe2243_1499827817.jpg');
   background-size: cover;
 }
 
@@ -51,6 +51,7 @@ body {
   list-style-type: none;
   padding-left: 0;
   line-height: 1.7;
+
 }
 
 #myFooter h5 {
@@ -121,4 +122,70 @@ body {
   #myFooter {
     text-align: center;
   }
+}
+.header-nightsky {
+    color: #ffffff;
+
+    background-size: cover;
+    background-position: bottom;
+    padding-bottom: 50px;
+}
+
+.header-nightsky .navbar-nav>li>a {
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.header-nightsky .navbar {
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom:none;
+    background-color: transparent;
+    min-width: 300px;
+    border: none;
+}
+
+.header-nightsky .navbar-default .navbar-nav>.open>a,
+.header-nightsky .navbar-default .navbar-nav>.open>a:focus,
+.header-nightsky .navbar-default .navbar-nav>.open>a:hover {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.header-nightsky .nav>li>a:focus,
+.header-nightsky .nav>li>a:hover {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.header-nightsky .navbar-nav>li {
+    margin-right: 20px;
+}
+
+.header-nightsky .navbar-nav {
+   margin-top: 12px;
+}
+
+.header-nightsky .navbar-toggle {
+    background-color: transparent !important;
+    margin-top: 20px;
+    border: 1px solid #fff;
+}
+
+.header-nightsky .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.header-nightsky .navbar-brand {
+    color: #ffffff;
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header-nightsky .navbar-brand:hover {
+    color: #ccc;
 }
