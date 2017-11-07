@@ -16,8 +16,8 @@
 
 body {
   background: linear-gradient(135deg, #172a74, #21a9af);
-  background-image: url('https://zmp3-photo.zadn.vn/covers/3/e/3e41bb2fa76c04460bc709dc46fe2243_1499827817.jpg');
-  background-size: cover;
+  /*background-image: url('https://zmp3-photo.zadn.vn/covers/3/e/3e41bb2fa76c04460bc709dc46fe2243_1499827817.jpg');
+  */
 }
 
 #myFooter {
