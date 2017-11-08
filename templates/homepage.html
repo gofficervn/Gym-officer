@@ -15,7 +15,7 @@
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
             <div class="container">
-                <a class="navbar-brand" href="#">GOfficer</a>
+                <a class="navbar-brand" href="{{ url_for('index') }}">GOfficer</a>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -25,17 +25,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">HOME</a></li>
+                        <li><a href="/">ABOUT US</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Donate</a></li>
-
+                                <li><a href="/admin">Admin</a></li>
+                                <li><a href="/donate">Donate</a></li>
                             </ul>
                         </li>
-
-
                     </ul>
                 </div>
             </div>
@@ -46,53 +43,50 @@
             <!-- <div class="btn btn-primary">Learn more about us</div>
             <div class="btn btn-primary">Contact us</div> -->
             <br><br>
-            <div class="container-fluid">
-              <div class="col-md-1">
 
+              <div class="container-fluid">
+                <form class="" action="/search" method="post">
+                <div class="col-md-1"></div>
+                <div class="col-md-3 no-padding">
+                  <select name="time" class="form-control input-lg" placeholder="Thời gian">
+                    <option value="0" >Thời gian</option>
+                    <option value="1">1 phút</option>
+                    <option value="3">3 phút</option>
+                    <option value="5">5 phút</option>
+                    <option value="More">More</option>
+                  </select>
+                </div>
+                <div class="col-sm-12 col-md-3 no-padding">
+                  <select name="purpose" class="form-control input-lg" placeholder="Mục đích">
+                    <option value="0">Mục đích</option>
+                    <option value="Thích thì tập">Thích thì tập</option>
+                    <option value="Đau đầu">Đau đầu</option>
+                    <option value="Mỏi chân">Mỏi chân</option>
+                    <option value="Mỏi tay">Mỏi tay</option>
+                  </select>
+                </div>
+                <div class="col-sm-12 col-md-3 no-padding">
+                  <select name="space" class="form-control input-lg" placeholder="Không gian">
+                    <option value="0">Không gian tập</option>
+                    <option value ="Bàn làm việc">Tại bàn làm việc</option>
+                    <option value="Ngoài sảnh">Ngoài sảnh</option>
+                    <option value="Tầng thượng">Tầng thượng</option>
+                    <option value="WC">WC</option>
+                  </select>
+                </div>
+                <div class="col-sm-12 col-md-1 no-padding">
+                  <button type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+
+                </div>
+                <div class="col-md-1"></div>
+                </form>
               </div>
-              <div class="col-md-3  no-padding">
 
-                <select id="time" class="form-control input-lg" placeholder="Thời gian">
-                  <option value="">Thời gian</option>
-                  <option>1 phút</option>
-                  <option>2 phút</option>
-                  <option>3 phút</option>
-                  <option>5 phút</option>
-                </select>
-              </div>
-              <div class="col-sm-12 col-md-3 no-padding">
 
-                <select id="target" class="form-control input-lg" placeholder="Mục đích">
-                  <option value="">Mục đích</option>
-                  <option>Thích thì tập</option>
-                  <option>Đau đầu</option>
-                  <option>Mỏi chân</option>
-                  <option>Mỏi tay</option>
-
-                </select>
-              </div>
-              <div class="col-sm-12 col-md-3 no-padding">
-
-                <select id="space" class="form-control input-lg" placeholder="Không gian">
-                  <option value="">Không gian tập</option>
-                  <option>Tại bàn làm việc</option>
-                  <option>Ngoài sảnh</option>
-                  <option>Tầng thượng</option>
-                  <option>WC</option>
-
-                </select>
-              </div>
-              <div class="col-sm-12 col-md-1 no-padding">
-                <button type="button" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="col-md-1">
-
-              </div>
-            </div>
         </div>
     </div>
-
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

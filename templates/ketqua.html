@@ -2,180 +2,116 @@
 <html>
 
 <head>
-    <title>Ketqua_search</title>
+    <title>Tìm kiếm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/header-big.css">
+    <link rel="stylesheet" type="text/css" href="static/css/ketqua.css">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="header-nightsky">
 
-        <!-- navbar -->
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <a class="navbar-brand" href="#">GOfficer</a>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">HOME</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Donate</a></li>
-
-                            </ul>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+      <nav class="navbar navbar-default">
+          <div class="container">
+              <a class="navbar-brand" href="{{ url_for('index') }}">GOfficer</a>
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/">ABOUT US</a></li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="/admin">Admin</a></li>
+                              <li><a href="/donate">Donate</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
         <!-- main background -->
         <div class="hero">
-            <h1>Gym for Officer</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut tempor enim.</p>
-            <!-- <div class="btn btn-primary">Learn more about us</div>
-            <div class="btn btn-primary">Contact us</div> -->
-            <br><br>
 
-            <!-- bar search -->
-            <div class="container-fluid">
-              <div class="col-md-1">
-
-              </div>
-              <div class="col-md-3  no-padding">
-
-                <select id="time" class="form-control input-lg" placeholder="Thời gian">
-                  <option value="">Thời gian</option>
-                  <option>1 phút</option>
-                  <option>2 phút</option>
-                  <option>3 phút</option>
-                  <option>5 phút</option>
-                </select>
-              </div>
-              <div class="col-sm-12 col-md-3 no-padding">
-
-                <select id="target" class="form-control input-lg" placeholder="Mục đích">
-                  <option value="">Mục đích</option>
-                  <option>Thích thì tập</option>
-                  <option>Đau đầu</option>
-                  <option>Mỏi chân</option>
-                  <option>Mỏi tay</option>
-
-                </select>
-              </div>
-              <div class="col-sm-12 col-md-3 no-padding">
-
-                <select id="space" class="form-control input-lg" placeholder="Mục đích">
-                  <option value="">Không gian tập</option>
-                  <option>Tại bàn làm việc</option>
-                  <option>Ngoài sảnh</option>
-                  <option>Tầng thượng</option>
-                  <option>WC</option>
-
-                </select>
-              </div>
-              <div class="col-sm-12 col-md-1 no-padding">
-                <button type="button" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </div>
-
-              <div class="col-md-1">
-
-              </div>
+          <div class="container-fluid">
+            <form class="" action="/search" method="post">
+            <div class="col-md-1"></div>
+            <div class="col-md-3 no-padding">
+              <select name="time" class="form-control input-lg" placeholder="Thời gian">
+                <option value="0" >Thời gian</option>
+                <option value="1">1 phút</option>
+                <option value="3">3 phút</option>
+                <option value="5">5 phút</option>
+                <option value="More">More</option>
+              </select>
             </div>
-
-            <br><br><br><br>
-            <div class="container-fluid">
-              <div class="col-md-8">
-                <h1><strong>Các kết quả tìm kiếm</strong></h1>
-              </div>
+            <div class="col-sm-12 col-md-3 no-padding">
+              <select name="purpose" class="form-control input-lg" placeholder="Mục đích">
+                <option value="0">Mục đích</option>
+                <option value="Thích thì tập">Thích thì tập</option>
+                <option value="Đau đầu">Đau đầu</option>
+                <option value="Mỏi chân">Mỏi chân</option>
+                <option value="Mỏi tay">Mỏi tay</option>
+              </select>
             </div>
-
-            <!-- search résult -->
-            <br>
-            <div class="container-fluid" >
-                <div class="col-md-10">
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-                      <a href="#baitap"><img src="http://tw.mensuno.asia/sites/default/files/of002%20%281%29.jpg" alt="An image of exercise"></a>
-                    </div>
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-                      <a href="#baitap" ><b class="card-title" style="font-size:300%; color:White;">Bài tập xoay cổ tay</b></a>
-                        <p><strong>Thời gian:</strong> Lorem ipsum dolor sit amet, consectetur ...</p>
-                        <p><strong>Không gian:</strong> Lorem ipsum dolor sit amet, consectetur ...</p>
-                        <p><strong>Tác dụng:</strong> Lorem ipsum dolor sit amet, consectetur ...</p>
-                    </div>
-                </div>
+            <div class="col-sm-12 col-md-3 no-padding">
+              <select name="space" class="form-control input-lg" placeholder="Không gian">
+                <option value="0">Không gian tập</option>
+                <option value ="Bàn làm việc">Tại bàn làm việc</option>
+                <option value="Ngoài sảnh">Ngoài sảnh</option>
+                <option value="Tầng thượng">Tầng thượng</option>
+                <option value="WC">WC</option>
+              </select>
             </div>
+            <div class="col-sm-12 col-md-1 no-padding">
+              <button type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
+              </button>
 
-              <!-- another search résult -->
-            <br><br>
-            <div class="container-fluid">
-                <div class="col-md-10">
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-                      <a href="#baitap"><img src="http://tw.mensuno.asia/sites/default/files/of002%20%281%29.jpg" alt="An image of exercise"></a>
-                    </div>
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-                      <a href="#baitap" ><b class="card-title" style="font-size:300%; color:white;">Bài tập xoay cổ tay</b></a>
-                        <p><strong>Thời gian:</strong> Lorem ipsum dolor sit amet, consectetur ...</p>
-                        <p><strong>Không gian:</strong> Lorem ipsum dolor sit amet, consectetur ...</p>
-                        <p><strong>Tác dụng:</strong> Lorem ipsum dolor sit amet, consectetur ...</p>
-                    </div>
-                </div>
             </div>
+            <div class="col-md-1"></div>
+            </form>
+          </div>
 
-            <!-- next result buttons -->
-            <br><br>
-            <div class="container-fluid">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-
-                <!--end main background area -->
         </div>
-      </div>
+        <div class="container">
+          <div class="col-md-7">
+            <h1 class="h1">Kết quả tìm kiếm</h1>
+            <br><br>
+          </div>
+          <div class="col-md-6">
+          </div>
+        </div>
+        {% for baitap in listbaitap %}
+        <div class="container img-thumbnail">
+
+          <div class="col-md-4">
+            <a target="_blank" href="#"><img class="cardimg" src="{{baitap.image}}" alt="An image of exercise"></a>
+          </div>
+          <div class="col-md-8">
+            <a href="baitap/{{baitap.id}}"class="" target="_blank" href="#" ><b style="font-size:300%; color:white;">{{baitap.name}}</b></a>
+            <br><br>
+              <h4 class=""><strong>Thời gian (phút) :</strong> {{baitap.time}}</h4>
+              <h4 class=""><strong>Không gian:</strong> {{baitap.space}}</h4>
+              <h4 class=""><strong>Tác dụng:</strong> {{baitap.purpose}}</h4>
+              <h4><strong>Mô tả:</strong> {{baitap.description}}</h4>
+          </div>
+
+        </div>
+      <br>
+        {% endfor %}
+
+    </div>
+
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

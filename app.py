@@ -36,12 +36,26 @@ def index():
 def search():
     time = request.form["time"]
     purpose = request.form["purpose"]
-    if request.form["time"] == '0' and request.form["purpose"] =='0':
-        listbaitap = BaiTap.objects()
-    else:
-        listbaitap = BaiTap.objects(time=time, purpose=purpose)
+    space = request.form["space"]
 
-    return render_template("search.html", listbaitap = listbaitap)
+    if request.form["time"] == '0' and request.form["purpose"] =="0" and request.form["space"] == '0':
+        listbaitap = BaiTap.objects()
+    elif request.form["time"] == "0" and request.form["purpose"] =="0" and request.form["space"] != "0":
+        listbaitap = BaiTap.objects(space = space)
+    elif request.form["time"] == "0" and request.form["purpose"] !="0" and request.form["space"] == "0":
+        listbaitap = BaiTap.objects(purpose = purpose)
+    elif request.form["time"] != "0" and request.form["purpose"] =="0" and request.form["space"] == "0":
+        listbaitap = BaiTap.objects(time = time)
+    elif request.form["time"] != "0" and request.form["purpose"] !="0" and request.form["space"] == "0":
+        listbaitap = BaiTap.objects(time = time, purpose = purpose)
+    elif request.form["time"] != "0" and request.form["purpose"] =="0" and request.form["space"] != "0":
+        listbaitap = BaiTap.objects(time = time, space = space)
+    elif request.form["time"] == "0" and request.form["purpose"] !="0" and request.form["space"] != "0":
+        listbaitap = BaiTap.objects(purpose = purpose, space = space)
+    else:
+        listbaitap = BaiTap.objects(time=time, purpose = purpose, space = space)
+
+    return render_template("baitap.html", listbaitap = listbaitap)
 
 if __name__ == '__main__':
   app.run(debug=True)
