@@ -18,7 +18,7 @@
 
       <nav class="navbar navbar-default">
           <div class="container">
-              <a class="navbar-brand" href="{{ url_for('index') }}">GOfficer</a>
+              <a class="navbar-brand" href="{{ url_for('index')}}">GOfficer</a>
               <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                       <span class="icon-bar"></span>
@@ -28,12 +28,12 @@
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="/">ABOUT US</a></li>
+                      <li><a href="{{url_for('about')}}">ABOUT US</a></li>
                       <li class="dropdown">
                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP <span class="caret"></span></a>
                           <ul class="dropdown-menu">
-                              <li><a href="/admin">Admin</a></li>
-                              <li><a href="/donate">Donate</a></li>
+                              <li><a href="{{url_for('access')}}">Admin</a></li>
+                              <li><a href="{{url_for('donate')}}">Donate</a></li>
                           </ul>
                       </li>
                   </ul>
@@ -98,7 +98,7 @@
             <a target="_blank" href="#"><img class="cardimg" src="{{baitap.image}}" alt="An image of exercise"></a>
           </div>
           <div class="col-md-8">
-            <a href="baitap/{{baitap.id}}"class="" target="_blank" href="#" ><b style="font-size:300%; color:white;">{{baitap.name}}</b></a>
+            <a href="baitap/{{baitap.id}}"class="" href="#" ><b style="font-size:300%; color:white;">{{baitap.name}}</b></a>
             <br><br>
               <h4 class=""><strong>Thời gian (phút) :</strong> {{baitap.time}}</h4>
               <h4 class=""><strong>Không gian:</strong> {{baitap.space}}</h4>

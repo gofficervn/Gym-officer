@@ -9,6 +9,22 @@
     <link rel="stylesheet" type="text/css" href="static/css/header-big.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- <script type="text/javascript"> -->
+         <!--
+            function sayHello() {
+               var password = prompt("Enter password to access you are admin", "");
+               if (password == "123456")
+               {
+                 document.getElementById("demo").innerHTML = '<button type="submit" class="btn btn-danger">Login Success</button>';
+               }
+               else {
+                 alert("Sai rồi");
+               }
+            }
+         //-->
+      <!-- </script> -->
+
 </head>
 
 <body>
@@ -25,12 +41,13 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">ABOUT US</a></li>
+                        <li><a href="{{url_for('about')}}">ABOUT US</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/admin">Admin</a></li>
-                                <li><a href="/donate">Donate</a></li>
+                                <li><a type="button" href="{{url_for('access')}}" >Admin</a></li>
+                                <!-- data-toggle="modal" data-target="#myModal" cái này thuộc thẻ a, admin-->
+                                <li><a href="{{url_for('donate')}}">Donate</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -86,7 +103,46 @@
 
         </div>
     </div>
-    
+
+
+    <!-- Large modal -->
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" id="myModalLabel">ADMIN</h4>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> WARNING !!</h2>
+            <h3>This site just for admin, please return home page.</h3>
+            <br>
+            <form>
+              <div class="form-group">
+                <!-- <label for="message-text" class="control-label">Password:</label>
+                <input name="password" id="password" type="password" class="form-control" placeholder="Password" required=""> -->
+                <input class="btn" type="button" onclick="sayHello()" value="Click if you're admin" />
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a href="#" id="demo"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').focus()
+    })
+    </script>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

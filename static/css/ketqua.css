@@ -203,6 +203,7 @@ image {
 
 .col-md-4 {
   padding-left: 0px;
+  padding-top, padding-bottom: auto; 
 }
 
 .h1 {

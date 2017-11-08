@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DONATE US</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+    <script type="text/javascript">
+         <!--
+            function sayHello() {
+                 document.getElementById("thanks").innerHTML = '<br>Thanks you for your suppost :D<br><br>';
+            }
+         //-->
+      </script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{{url_for('index')}}">GOfficer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a class="nav-link" href="{{url_for('about')}}">About Us</a>
+        </form>
+      </div>
+    </nav>
+    <br><br>
+    <div class="container">
+      <h1>Donation</h1>
+      <hr>
+      <form action="{{url_for('index')}}">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"><b>First Name</b></label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticEmail" placeholder="" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"><b>Last Name</b></label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticEmail" placeholder="" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"><b>Email</b></label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticEmail" placeholder="" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Phone</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassword" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label"><b>Amount ($USD)</b></label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputPassword" placeholder="" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Fund</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassword" placeholder="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Comment</label>
+          <div class="col-sm-10">
+            <textarea type="text" class="form-control" placeholder="" rows= "3"></textarea>
+          </div>
+        </div>
+
+        <input onclick="sayHello()" class="btn btn-primary" type="submit" name="" value="Submit">
+        <hr>
+        <h1 id="thanks"></h1>
+      </form>
+
+    </div>
+
+    <footer class="bs-docs-footer text-center bg-dark">
+      <div class="container">
+      <br>
+      <p class="text-light">Designed and built with all the love in the world by <a class="badge-dark" href="" target="_blank">@GOfficer Team</a>. Maintained by the <a class="badge-dark" href="">Git</a> with the help of <a class="badge-dark" href="https://www.facebook.com/groups/131172937478690/">Techkids</a>.</p> <p class="text-light">Code licensed
+      <a class="badge-dark" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license">MIT</a>, docs <a class="badge-dark" href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license">CC BY 3.0</a>.</p>
+      <br>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  </body>
+</html>
