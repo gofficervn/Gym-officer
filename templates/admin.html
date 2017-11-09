@@ -14,6 +14,7 @@
       table, th, td {
 
         border-collapse: collapse;
+        border: 1px solid white;
       }
       th, td {
           padding: 20px;
@@ -32,7 +33,7 @@
          background-color:#fff;
       }
       table#t01 th {
-          background-color: blue;
+          background-color: black;
           color: white;
       }
       i{ color: green;}
@@ -46,11 +47,12 @@
 
     <br>
     <div class="container-fluid">
-      <a href="/addbaitap">
-        <button class="btn btn-sm btn-primary float-right mt-2 mb-2">Thêm</button>
+      <a class="mt-2 mb-1" href="{{url_for('index')}}"><button class="btn btn-primary btn-sm">Return Home</button></a>
+      <a href="{{url_for('adbaitap')}}">
+        <button class="btn btn-sm btn-primary float-right mt-2 mb-1">Thêm Bài Tập</button>
       </a>
     </div>
-    <br><hr>
+    <hr>
 
 
     <div class="container-fluid">
@@ -75,11 +77,11 @@
             <tr class = 'row'>
               <td class='col-md-1'>{{loop.index}}</td>
               <td class='col-md-1'>
-                <a href="/updatebaitap/{{baitap.id}}">
+                <a href="{{url_for('updatebaitap', baitap_id = baitap.id )}}">
                   <span><i class="fa fa-pencil fa-lg " aria-hidden="true"> Sửa</i></span>
                 </a>
-                <span><i class="fa fa-trash fa-lg " aria-hidden="true"> Xóa</i></span>
-
+                <hr>
+                <a href="{{url_for('deletebaitap', baitap_id = baitap.id )}}"><span><i class="fa fa-trash fa-lg " aria-hidden="true"> Xóa</i></span></a>
               </td>
               <td class='col-md-1'>{{baitap.name}}</td>
               <td class='col-md-1'>{{baitap.time}}</td>
@@ -87,7 +89,10 @@
               <td class='col-md-1'>{{baitap.space}}</td>
               <td class='col-md-4'>{{baitap.description}}</td>
               <td class='col-md-1'>
-                <a href='{{baitap.image}}' target = '_blank'>Link ảnh</a></td>
+                {% for img in baitap.image %}
+                  <a href='{{img}}' target = '_blank'>Link ảnh {{loop.index}}</a>
+                {% endfor %}
+              </td>
               <td class='col-md-1'>
                 <a href="{{baitap.clip}}" target = '_blank'>Link clip</a></td>
             </tr>

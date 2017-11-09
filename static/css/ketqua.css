@@ -189,7 +189,7 @@ select#space {
   padding-top, padding-bottom: 10px;
   border: 5px solid #ddd;
   border-radius: 20px;
-  height: 200px;
+  height: 221px;
 }
 
 image {
@@ -199,10 +199,10 @@ image {
 }
 .cardimg {
   width: 100%;
-  height: 100%;
+  height: 200px;
 }
 
-.col-md-4 {
+.col-md-6 {
   padding-left: 0px;
   padding-top, padding-bottom: auto;
 }
@@ -214,7 +214,7 @@ image {
 }
 
 div.col-md-6{
-  
+
   clear: top;
   margin-bottom: 15px;
 }

@@ -7,6 +7,7 @@
     <title></title>
   </head>
   <body>
+    <a class="float-right" href="{{url_for('index')}}"><button class="btn btn-primary btn-sm">Return Home</button></a>
 
     <h1 class="font-weight-bold text-center text-info">Edit Bài Tập</h1>
 
@@ -25,40 +26,56 @@
           <label class ="font-weight-bold" for="">Time</label>
           <!-- <input class="form-control" name="time" value="{{baitap.time}}"> -->
           <select name="time" class="form-control input-lg" placeholder="Thời gian">
-            <option value="{{baitap.time}}" selected>{{baitap.time}} phút</option>
-            <option value="1">1 phút</option>
-            <option value="3">3 phút</option>
-            <option value="5">5 phút</option>
+            <option value="{{baitap.time}}" selected>{{baitap.time}}</option>
+            <option value="1 phút">1 phút</option>
+            <option value="3 phút">3 phút</option>
+            <option value="5 phút">5 phút</option>
             <option value="More">More</option>
           </select>
       </div>
 
       <div class="form-group">
           <label class ="font-weight-bold" for="">Purpose</label>
-          <input class="form-control" name="purpose" value="{{baitap.purpose}}">
+          <!-- <input class="form-control" name="purpose" value="{{baitap.purpose}}"> -->
+          <select name="purpose" class="form-control input-lg" placeholder="Mục đích">
+            <option value="{{baitap.purpose}}">{{baitap.purpose}}</option>
+            <option value="Đau chân">Đau chân</option>
+            <option value="Đau cổ">Đau cổ</option>
+            <option value="Đau lưng">Đau lưng</option>
+            <option value="Đau tay">Đau tay</option>
+          </select>
       </div>
 
       <div class="form-group">
           <label class ="font-weight-bold" for="">Space</label>
-          <input class="form-control" name="space" value="{{baitap.space}}">
+          <!-- <input class="form-control" name="space" value="{{baitap.space}}"> -->
+          <select name="space" class="form-control input-lg" placeholder="Không gian">
+            <option value="{{baitap.space}}">{{baitap.space}}</option>
+            <option value ="Tại chỗ">Tại bàn làm việc</option>
+            <option value="Ngoài sảnh">Ngoài sảnh</option>
+
+            <option value="WC">WC</option>
+          </select>
       </div>
 
       <div class="form-group">
         <label class ="font-weight-bold" for="">Description</label>
-        <textarea class="form-control" name="Description" rows="5" cols="80">{{baitap.description}}</textarea>
+        <textarea class="form-control" name="description" rows="5" cols="80">{{baitap.description}}</textarea>
       </div>
 
       <div class="form-group">
           <label class ="font-weight-bold" for="">Image</label>
-          <div class="block">
-            <img src="{{baitap.image}}" alt=''>
-          </div>
-          <input class="form-control" name="image" value="{{baitap.image}}">
+          {% for img in baitap.image %}
+          <input class="form-control" value="{{img}}" readonly>
+          <br>
+          {% endfor %}
+          Chỉnh sửa link (Ngăn cách link bằng dấu ","):
+          <textarea class="form-control" name="image" rows="5" required></textarea>
       </div>
 
       <div class="form-group">
           <label class ="font-weight-bold" for="">Clip</label>
-          <input class="form-control" name="image" value="{{baitap.clip}}">
+          <input class="form-control" name="clip" value="{{baitap.clip}}">
       </div>
 
         <div class="form-group text-right">
