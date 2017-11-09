@@ -8,6 +8,7 @@
 #head {
   font-family: 'Montserrat', sans-serif;
   margin-left: 250px;
+  background: black;
 }
 
 #row {
@@ -188,4 +189,8 @@ body {
 
 .header-nightsky .navbar-brand:hover {
     color: #ccc;
+}
+
+.col-md-4 .col-md-2 {
+  float: left;
 }

@@ -8,8 +8,8 @@
   </head>
   <body>
 
-
-
+    <a class="float-right" href="{{url_for('index')}}"><button class="btn btn-primary btn-sm">Return Home</button></a>
+    <h1 class="font-weight-bold text-center text-info">Add bài tập</h1>
     <div class="container col-md-6">
 
           <form class="" action="/addbaitap" method="post">
@@ -21,27 +21,48 @@
 
             <div class="form-group">
               <label class ="font-weight-bold" for="">Time</label>
-              <input class ='form-control' type="text" name="time" value="" required>
+
+              <select name="time" class="form-control input-lg" placeholder="Thời gian" required>
+
+                <option value="1 phút">1 phút</option>
+                <option value="3 phút">3 phút</option>
+                <option value="5 phút">5 phút</option>
+                <option value="More">More</option>
+              </select>
             </div>
 
             <div class="form-group">
               <label class ="font-weight-bold" for="">Purpose</label>
-              <input class ='form-control' type="text" name="purpose" value="" required>
+
+              <select name="purpose" class="form-control input-lg" placeholder="Mục đích" required>
+
+                <option value="Đau chân">Đau chân</option>
+                <option value="Đau cổ">Đau cổ</option>
+                <option value="Đau lưng">Đau lưng</option>
+                <option value="Đau tay">Đau tay</option>
+              </select>
             </div>
 
             <div class="form-group">
               <label class ="font-weight-bold" for="">Space</label>
-              <input class ='form-control' type="text" name="space" value="" required>
+
+              <select name="space" class="form-control input-lg" placeholder="Không gian" required>
+
+                <option value ="Tại chỗ">Tại bàn làm việc</option>
+                <option value="Ngoài sảnh">Ngoài sảnh</option>
+
+                <option value="WC">WC</option>
+              </select>
             </div>
 
             <div class="form-group">
               <label class ="font-weight-bold" for="">Description</label>
-              <input class ='form-control' type="text" name="description" value="" required>
+              <textarea class ='form-control' rows="3" type="text" name="description" value="" required></textarea>
             </div>
 
             <div class="form-group">
-              <label class ="font-weight-bold" for="">Image</label>
-              <input class ='form-control' type="text" name="image" value="" required>
+              <label class ="font-weight-bold" for="">Image (Ngăn cách link bằng dấu ",")</label>
+              <textarea class ='form-control' type="text" rows="3" name="image" value="" required></textarea>
             </div>
 
             <div class="form-group">

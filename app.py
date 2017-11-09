@@ -13,7 +13,7 @@ class BaiTap(Document):
     purpose = StringField()
     space = StringField()
     description = StringField()
-    image = StringField()
+    image = ListField(StringField())
     clip = StringField()
 # baitap = BaiTap(
 # name="Xoay khớp cổ",
@@ -81,8 +81,10 @@ def adbaitap():
         purpose = form['purpose']
         space = form['space']
         description = form['description']
-        image = form['image']
+        imagestring = form['image']
+        image = imagestring.split(",")
         clip = form['clip']
+
 
         baitap = BaiTap(name = name, time = time, purpose = purpose, space = space, description = description, image= image, clip= clip)
         baitap.save()
@@ -93,11 +95,12 @@ def adbaitap():
 @app.route('/baitap/<baitap_id>', methods=["GET"])
 def baitap(baitap_id):
     baitap = BaiTap.objects().with_id(baitap_id)
-    return render_template('baitap.html', baitap= baitap)
+
+    return render_template('baitap_new.html', baitap= baitap)
 
 @app.route('/deletebaitap/<baitap_id>')
 def deletebaitap(baitap_id):
-    listbaitap = BaiTap.objects()
+
 
     baitap = BaiTap.objects().with_id(baitap_id)
     if baitap is None:
@@ -105,6 +108,7 @@ def deletebaitap(baitap_id):
     else:
         baitap.delete()
 
+    listbaitap = BaiTap.objects()
     return render_template('admin.html',listbaitap = listbaitap)
 
 @app.route('/updatebaitap/<baitap_id>',methods=['GET','POST'])
@@ -121,12 +125,12 @@ def updatebaitap(baitap_id):
         purpose = form['purpose']
         space = form['space']
         description = form['description']
-        image = form['image']
+        imagestring = form['image']
+        image = imagestring.split(",")
         clip = form['clip']
 
         baitap.update(set__name = name,set__time = time, set__purpose = purpose, set__space = space
-                        , set__description = description,set__image = image, set__clip = clip,
-        )
+                        , set__description = description,set__image = image, set__clip = clip)
 
     return render_template('admin.html',listbaitap = listbaitap)
 
