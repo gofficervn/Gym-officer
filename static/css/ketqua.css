@@ -4,7 +4,8 @@ body {
 
 .header-nightsky {
     color: #ffffff;
-    background: url("https://images5.alphacoders.com/711/thumb-1920-711085.jpg") no-repeat;
+    background:linear-gradient(135deg, #172a74, #21a9af);
+    background-color:#184e8e;
     background-size: cover;
     background-position: bottom;
     padding-bottom: 100px;
@@ -70,7 +71,7 @@ body {
 }
 
 .header-nightsky .hero {
-    text-align: center;
+
     margin-top: 80px;
     margin-bottom: 100px;
 }
@@ -183,4 +184,30 @@ select#space {
 
 .img-thumbnail {
   background: transparent;
+  display: inherit;
+  padding-left: 5px;
+  padding-top, padding-bottom: 10px;
+  border: 5px solid #ddd;
+  border-radius: 20px;
+}
+
+image {
+  background-size: contain;
+  height: 100%;
+  width: auto;
+}
+.cardimg {
+  width: 100%;
+  height: 100%;
+}
+
+.col-md-4 {
+  padding-left: 0px;
+  padding-top, padding-bottom: auto; 
+}
+
+.h1 {
+  font-size: 55px;
+  font-weight: 300;
+  line-height: 1.2;
 }

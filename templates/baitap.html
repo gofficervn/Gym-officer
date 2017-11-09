@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
   <div class="header-nightsky">
     <nav class="navbar navbar-default">
       <div class="container">
-        <a class="navbar-brand" href="homepage.htm">GOfficer</a>
+        <a class="navbar-brand" href="{{url_for('index')}}">GOfficer</a>
 
       </div>
   </div>
@@ -22,18 +22,18 @@
 
   </div>
 
-  <h1 style="text-align:center; font-family: 'Roboto', sans-serif; color:white">Bài tập cổ tay</h1>
+  <h1 style="text-align:center; font-family: 'Roboto', sans-serif; color:white">{{baitap.name}}</h1>
   <br>
 
   <ul id="list">
     <li>
-      <p><strong>Thời gian:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+      <p><strong>Thời gian:</strong> {{baitap.time}} </p>
     </li>
     <li>
-      <p><strong>Không gian:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+      <p><strong>Không gian:</strong> {{baitap.space}} </p>
     </li>
     <li>
-      <p><strong>Tác dụng:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod te</p>
+      <p><strong>Tác dụng:</strong> {{baitap.purpose}}</p>
     </li>
   </ul>
   <br><br>
@@ -92,6 +92,7 @@
 
 
 
+    </div>
 
 
   <br><br><br><br>

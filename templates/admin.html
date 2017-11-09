@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/homepage.css">
+    <link href="https://fonts.googleapis.com/css?family=Lustria" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Admin</title>
+
+    <style media="screen">
+      table, th, td {
+
+        border-collapse: collapse;
+      }
+      th, td {
+          padding: 20px;
+          width: 0px;
+      }
+      th {
+        text-align: center;
+      }
+      table {
+        border-spacing: 5px;
+      }
+      table#t01 tr:nth-child(even) {
+        background-color: #eee;
+      }
+      table#t01 tr:nth-child(odd) {
+         background-color:#fff;
+      }
+      table#t01 th {
+          background-color: blue;
+          color: white;
+      }
+      i{ color: green;}
+      a{ color: blue;
+      text-decoration: none !important;}
+    </style>
+  </head>
+
+
+  <body>
+
+    <br>
+    <div class="container-fluid">
+      <a href="/addbaitap">
+        <button class="btn btn-sm btn-primary float-right mt-2 mb-2">Thêm</button>
+      </a>
+    </div>
+    <br><hr>
+
+
+    <div class="container-fluid">
+      <table id='t01'>
+          <thead>
+            <tr class ="row">
+              <th class='col-md-1'>stt</th>
+              <th class='col-md-1'>Edit</th>
+              <th class='col-md-1'>Name</th>
+              <th class='col-md-1'>Time</th>
+              <th class='col-md-1'>Purpose</th>
+              <th class='col-md-1'>Space</th>
+              <th class='col-md-4'>Description</th>
+              <th class='col-md-1'>Image</th>
+              <th class='col-md-1'>Clip</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for baitap in listbaitap %}
+            <tr class = 'row'>
+              <td class='col-md-1'>{{loop.index}}</td>
+              <td class='col-md-1'>
+                <a href="/updatebaitap/{{baitap.id}}">
+                  <span><i class="fa fa-pencil fa-lg " aria-hidden="true"> Sửa</i></span>
+                </a>
+                <span><i class="fa fa-trash fa-lg " aria-hidden="true"> Xóa</i></span>
+
+              </td>
+              <td class='col-md-1'>{{baitap.name}}</td>
+              <td class='col-md-1'>{{baitap.time}}</td>
+              <td class='col-md-1'>{{baitap.purpose}}</td>
+              <td class='col-md-1'>{{baitap.space}}</td>
+              <td class='col-md-4'>{{baitap.description}}</td>
+              <td class='col-md-1'>
+                <a href='{{baitap.image}}' target = '_blank'>Link ảnh</a></td>
+              <td class='col-md-1'>
+                <a href="{{baitap.clip}}" target = '_blank'>Link clip</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  </body>
+</html>
