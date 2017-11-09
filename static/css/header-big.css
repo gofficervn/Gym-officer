@@ -157,7 +157,7 @@ select#time {
   padding-left: 60px;
 }
 
-select#target {
+select#purpose {
   font-size: 16px;
   color: grey;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Circle-icons-focus.svg/2000px-Circle-icons-focus.svg.png");
