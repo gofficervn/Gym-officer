@@ -70,9 +70,24 @@ def admin():
         return render_template("homepage.html")
 
 
-@app.route('/addbaitap')
+@app.route('/addbaitap', methods=["GET","POST"])
 def adbaitap():
-    return render_template('addbaitap.html')
+    if request.method == "GET":
+        return render_template('addbaitap.html')
+    elif request.method =="POST":
+        form = request.form
+        name = form['name']
+        time = form['time']
+        purpose = form['purpose']
+        space = form['space']
+        description = form['description']
+        image = form['image']
+        clip = form['clip']
+
+        baitap = BaiTap(name = name, time = time, purpose = purpose, space = space, description = description, image= image, clip= clip)
+        baitap.save()
+        listbaitap = BaiTap.objects()
+        return render_template('admin.html', listbaitap = listbaitap)
 
 
 @app.route('/baitap/<baitap_id>', methods=["GET"])

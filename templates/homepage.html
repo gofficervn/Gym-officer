@@ -65,7 +65,8 @@
                 <form class="" action="/search" method="post">
                 <div class="col-md-1"></div>
                 <div class="col-md-3 no-padding">
-                  <select name="time" class="form-control input-lg" placeholder="Thời gian">
+                  <select id="time" name="time" class="form-control input-lg" placeholder="Thời gian" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('search-btn').click()">
                     <option value="0" >Thời gian</option>
                     <option value="1">1 phút</option>
                     <option value="3">3 phút</option>
@@ -74,7 +75,8 @@
                   </select>
                 </div>
                 <div class="col-sm-12 col-md-3 no-padding">
-                  <select name="purpose" class="form-control input-lg" placeholder="Mục đích">
+                  <select id="purpose" name="purpose" class="form-control input-lg" placeholder="Mục đích" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('search-btn').click()">
                     <option value="0">Mục đích</option>
                     <option value="Thích thì tập">Thích thì tập</option>
                     <option value="Đau đầu">Đau đầu</option>
@@ -83,7 +85,8 @@
                   </select>
                 </div>
                 <div class="col-sm-12 col-md-3 no-padding">
-                  <select name="space" class="form-control input-lg" placeholder="Không gian">
+                  <select id="space" name="space" class="form-control input-lg" placeholder="Không gian" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('search-btn').click()">
                     <option value="0">Không gian tập</option>
                     <option value ="Bàn làm việc">Tại bàn làm việc</option>
                     <option value="Ngoài sảnh">Ngoài sảnh</option>
@@ -92,7 +95,7 @@
                   </select>
                 </div>
                 <div class="col-sm-12 col-md-1 no-padding">
-                  <button type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
+                  <button id="search-btn" type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
                   </button>
 
                 </div>
@@ -142,6 +145,16 @@
       $('#myInput').focus()
     })
     </script>
+
+    <!-- <script type="text/javascript">
+        document.getElementById("id_of_textbox")
+        .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("id_of_button").click();
+        }
+    });
+    </script> -->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
