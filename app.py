@@ -55,7 +55,7 @@ def search():
     else:
         listbaitap = BaiTap.objects(time=time, purpose = purpose, space = space)
 
-    return render_template("ketqua.html", listbaitap = listbaitap)
+    return render_template("ketqua_new.html", listbaitap = listbaitap)
 
 @app.route("/access")
 def access():

@@ -12,7 +12,7 @@
 }
 
 #myFooter .row {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 #myFooter .navbar-brand {
@@ -73,20 +73,32 @@
 }
 
 #myFooter .facebook:hover {
-    color: #0077e2;
+    font-size: 60px;
+    color: #3b5998;
 }
 
 #myFooter .google:hover {
-    color: #ef1a1a;
+  font-size: 60px;
+    color:  #d34836;
 }
 
 #myFooter .twitter:hover {
+  font-size: 60px;
     color: #00aced;
 }
+#myFooter .skype:hover {
+  font-size: 60px;
+    color: #12A5F4;
+}
+#myFooter .linkedin:hover {
+  font-size: 60px;
+    color: #007bb6;
+}
+
 
 #myFooter .btn {
     color: white;
-    background-color: #d84b6b;
+    background-color: #ffbd4a;
     border-radius: 20px;
     border: none;
     width: 150px;
@@ -95,6 +107,8 @@
     margin-top: 10px;
     line-height: 25px;
 }
+
+
 
 @media screen and (max-width: 767px) {
     #myFooter {
