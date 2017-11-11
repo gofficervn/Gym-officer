@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kết quả tìm kiếm</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body class="body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-top: 0px;padding-bottom: 0px;">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index')}}">GOfficer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <h1 class="mr-auto"></h1>
+                <ul class="nav navbar-nav">
+                    <li><a class="nav-item nav-link" href="{{url_for('about')}}" style="color: white;">ABOUT US</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">HELP <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{url_for('access')}}">Admin</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('donate')}}">Donate</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero">
+      <h2></h2>
+      <div class="container" id="search-blur">
+        <h1 class="text-center" style="font-family: 'Montserrat', sans-serif; ">Search and Do It!</h1>
+        <form class="" action="/search" method="post">
+          <div class="col-md-1 float-left"></div>
+          <div class="col-md-3 no-padding float-left input-group-lg">
+            <select id="time" name="time" class="form-control" placeholder="Thời gian" onkeydown = "if (event.keyCode == 13)
+                  document.getElementById('search-btn').click()">
+              <option value="0" >Thời gian</option>
+              <option value="1 phút">1 phút</option>
+              <option value="3 phút">3 phút</option>
+              <option value="5 phút">5 phút</option>
+              <option value="More">More</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-3 no-padding float-left input-group-lg">
+            <select id="purpose" name="purpose" class="form-control" placeholder="Mục đích" onkeydown = "if (event.keyCode == 13)
+                  document.getElementById('search-btn').click()">
+              <option value="0">Mục đích</option>
+              <option value="Đau chân">Đau chân</option>
+              <option value="Đau cổ">Đau cổ</option>
+              <option value="Đau lưng">Đau lưng</option>
+              <option value="Đau tay">Đau tay</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-3 no-padding float-left input-group-lg">
+            <select id="space" name="space" class="form-control" placeholder="Không gian" onkeydown = "if (event.keyCode == 13)
+                  document.getElementById('search-btn').click()">
+              <option value="0">Không gian tập</option>
+              <option value ="Tại chỗ">Tại bàn làm việc</option>
+              <option value="Ngoài sảnh">Ngoài sảnh</option>
+
+              <option value="WC">WC</option>
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-1 no-padding float-left">
+            <button id="search-btn" type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="col-md-1"></div>
+        </form>
+      </div>
+      <h3>&nbsp;</h3>
+    </div>
+    <div class="backgrd">
+      <div class="container">
+        <br>
+        <h1>Kết quả tìm kiếm: </h1>
+        <br>
+        <div class="row container-fluid">
+          <div class="container backgrd">
+            {% for baitap in listbaitap %}
+
+            <div class="col-sm-12 col-md-4 float-left" style="padding-bottom: 10px;">
+              <div class="card" style="width: 20rem;">
+                <a href="baitap/{{baitap.id}}"><img  class="card-img-top" src="{{baitap.image[0]}}" alt="Card image cap"></a>
+
+                <div class="card-body">
+                  <div class="card-header">
+                    <a href="baitap/{{baitap.id}}"><h4 class="text-primary">Động tác: {{baitap.name}}</h4></a>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Thời gian: {{baitap.time}}</li>
+                    <li class="list-group-item">Không gian: {{baitap.space}}</li>
+                    <li class="list-group-item">Loại bệnh: {{baitap.purpose}}</li>
+                  </ul>
+
+
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+      <br>
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+
+                    <h2 class="logo" ><a href="{{url_for('index')}}"><img style="height: 180px;" src="../../static/image/GOfficer (2).png" alt=""> </a></h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5><i class="fa fa-link" aria-hidden="true"></i>&nbsp; Links</h5>
+                    <ul>
+                        <li><a href="{{url_for('index')}}">Home</a></li>
+                        <li><a href="{{url_for('about')}}">About Us</a></li>
+                        <li><a href="{{url_for('donate')}}">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp; Contact</h5>
+                    <ul>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="#">&nbsp;&nbsp; 22 Thành Công, Ba Đình, Hà Nội</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a>&nbsp; +84 113 115 119</a></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a>&nbsp; info@gofficervn.com</a></li>
+                        <li><i class="fa fa-globe" aria-hidden="true"></i><a>&nbsp;&nbsp; www.gofficervn.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="social-networks">
+                        <a href="https://twitter.com/?lang=vi" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://plus.google.com/discover?hl=vi" target="_blank" class="google"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://www.skype.com/en/new/" target="_blank" class="skype"><i class="fa fa-skype" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                    <button type="button" class="btn btn-danger">Contact us</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p> Copyright © GOfficer 2017.</p>
+        </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  </body>
+</html>
