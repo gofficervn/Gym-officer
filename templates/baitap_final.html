@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise</title>
+    <link rel="shortcut icon" href="../static/image/GOfficer (2).png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/baitap_final.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Libraries CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <style>
+    .mySlides {display:none}
+    </style>
+  </head>
+  <body class="body">
+    <button class="btn-lg" onclick="topFunction()" id="myBtn" title="Back to Search"><i class="fa fa-chevron-circle-left"  aria-hidden="true"></i> &nbsp; Back to Search
+    </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-top: 0px;padding-bottom: 0px;">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index')}}">GOfficer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <h1 class="mr-auto"></h1>
+                <ul class="nav navbar-nav">
+                    <li><a class="nav-item nav-link" href="{{url_for('about')}}" style="color: white;">ABOUT US</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" style="color: white;">HELP <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{url_for('access')}}">Admin</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('donate')}}">Donate</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <br>
+    <div class="row container-fluid">
+
+      <div class="col-sm-12 col-md-9 float-left">
+        <div class="card">
+          <div class="card-header text-center bg-white">
+            <h3 class="text-danger"><b>Động tác: {{baitap.name}}</b></h3>
+          </div>
+          <div class="card-body">
+            <div class="col-sm-12 col-md-4 float-left">
+              <div class="card" id='ul'>
+                <div class="card-header">
+                  <b>Thông tin bài tập</b>
+                </div>
+                <ul class="list-group list-group-flush" >
+                  <li class="list-group-item"><b>Tên bài tập:</b> {{baitap.name}}</li>
+                  <li class="list-group-item"><b>Thời gian:</b> {{baitap.time}}</li>
+                  <li class="list-group-item"><b>Không gian:</b> {{baitap.space}}</li>
+                  <li class="list-group-item"><b>Loại bệnh:</b> {{baitap.purpose}}</li>
+                  <li class="list-group-item"><b>Hướng dẫn tập:</b> {{baitap.description}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-8 float-left">
+              <nav class="nav nav-tabs" id="myTab" role="tablist">
+                <a class="nav-item nav-link active text-danger" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Slideshow</a>
+                <a class="nav-item nav-link text-danger" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Video Minh Họa</a>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <div class="">
+                    <h2></h2>
+                    <p></p>
+                  </div>
+
+                  <div class="w3-content wrapper" style="max-width:800px">
+                    {% for img in baitap.image %}
+                    <div class="mySlides im1" style="background-image: url('{{img}}');"></div>
+                    {% endfor %}
+                  </div>
+
+
+
+                  <div class="w3-center">
+                    <div class="w3-section">
+                      <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+                      <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+                    </div>
+                    {% for img in baitap.image %}
+                    <button class="w3-button demo" onclick="currentDiv({{loop.index}})">{{loop.index}}</button>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                  <h2></h2>
+                  <br>
+                  <iframe width="100%" height="370px" src="{{baitap.clip}}" frameborder="0" gesture="media" allowfullscreen></iframe>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer text-center text-muted bg-white">
+            2 days ago
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3">
+
+
+        <div class="card">
+          <div class="card-header bg-white">
+            <b>Bài tập tương tự:</b>
+          </div>
+          <div class="card-body">
+            {% for baitap in similar_baitap %}
+              {% if loop.index != 1 %}
+              <hr>
+              {% endif %}
+              <div class="media" style="display:block;">
+                <a href="/baitap/{{baitap.id}}">
+                  <div class="wrapper1 card-img-top">
+                    <div class="im1" style="background-image: url('{{baitap.image[0]}}');">
+                    </div>
+                  </div>
+                </a>
+                <div class="media-body">
+
+                  <h5 class="mt-2"><a style="text-decoration: none" href="/baitap/{{baitap.id}}">Động tác: {{baitap.name}}</a></h5>
+                  <p style="height: 45px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;"><i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp; <i>{{baitap.time}}</i> &nbsp; <i class="fa fa-home" aria-hidden="true"></i> &nbsp; <i>{{baitap.space}}</i>
+                    &nbsp; <i class="fa fa-heartbeat" aria-hidden="true"></i> &nbsp; <i>{{baitap.purpose}}</i>
+                    <br>
+                    Hướng dẫn tập: {{baitap.description}}</p>
+
+                </div>
+              </div>
+              <a style="" class="float-right text-danger wow slideInLeft" href="/baitap/{{baitap.id}}"><i><i class=" fa fa-angle-double-right" aria-hidden="true"></i>Xem chi tiết</i></a>
+              <br>
+
+
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2 class="logo" ><a href="{{url_for('index')}}"><img style="height: 180px;" src="../../static/image/GOfficer (2).png" alt=""> </a></h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5><i class="fa fa-link" aria-hidden="true"></i>&nbsp; Links</h5>
+                    <ul>
+                        <li><a href="{{url_for('index')}}">Home</a></li>
+                        <li><a href="{{url_for('about')}}">About Us</a></li>
+                        <li><a href="{{url_for('donate')}}">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp; Contact</h5>
+                    <ul>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="#">&nbsp;&nbsp; 22 Thành Công, Ba Đình, Hà Nội</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a>&nbsp; +84 113 115 119</a></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a>&nbsp; info@gofficervn.com</a></li>
+                        <li><i class="fa fa-globe" aria-hidden="true"></i><a>&nbsp;&nbsp; www.gofficervn.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="social-networks">
+                        <a href="https://twitter.com/?lang=vi" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://plus.google.com/discover?hl=vi" target="_blank" class="google"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://www.skype.com/en/new/" target="_blank" class="skype"><i class="fa fa-skype" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                    <button type="button" class="btn btn-danger">Contact us</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p> Copyright © GOfficer 2017.</p>
+        </div>
+    </footer>
+
+    <script>
+
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+          if (document.body.scrollTop > -1 || document.documentElement.scrollTop > -1) {
+              document.getElementById("myBtn").style.display = "block";
+          } else {
+              document.getElementById("myBtn").style.display = "none";
+          }
+      }
+      var timeOut;
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        history.go(-1);
+      }
+
+
+    </script>
+
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function currentDiv(n) {
+        showDivs(slideIndex = n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+           x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+           dots[i].className = dots[i].className.replace(" w3-red", "");
+        }
+        x[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " w3-red";
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+    new WOW().init();
+    </script>
+  </body>
+</html>

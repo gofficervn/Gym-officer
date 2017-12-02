@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>About Us</title>
+    <link rel="shortcut icon" href="../static/image/GOfficer (2).png" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Libraries CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Main Stylesheet File -->
+    <link href="../static/css/about.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-circle-up fa-2x" aria-hidden="true"></i></button>
+    <!--    Header    -->
+
+    <header id="header" class="header-fixed">
+      <div class="container">
+        <div id="logo">
+          <h1><a href="{{ url_for('index')}}">gofficer</a></h1>
+        </div>
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="#hero">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </nav><!-- #nav-menu-container -->
+      </div>
+    </header><!-- #header -->
+
+    <!--      Hero Section  -->
+    <section id="hero">
+      <div class="hero-container">
+        <h1 class="animated flip">Welcome to GOFFICER</h1>
+        <h2 class="animated bounceInUp">We are believing good health is good life</h2>
+        <a href="#about" class="btn-get-started animated bounceInUp">Get Started</a>
+      </div>
+    </section><!-- #hero -->
+    <main id="main">
+      <!--        About Us Section     -->
+      <section id="about" >
+        <div class="container">
+          <div class="row about-container">
+
+            <div class="col-lg-6 content order-lg-1 order-2">
+              <h2 class="title">Few Words About Us</h2>
+              <p >
+                "Chúng tôi, có người là dân ngân hàng, có người là sinh viên, cũng có người làm trong ngành nhân sự,... Xuất phát từ thực tế sáng đi học đi làm ngồi tại những văn phòng, những giảng đường đến tối lại về học thêm từng câu lệnh, từng dòng code với đam mê và sức sáng tạo không ngừng, nhưng chúng tôi nhận ra để giữ được sức sáng tạo đó không thể không quan tâm đến sức khỏe của bản thân. Và với ý tưởng đó chúng tôi cùng nhau tạo nên một trang web giữ gìn sức khỏe cho những người phải "ngồi" nhiều. Hi vọng Gofficer (Gym for Officer) - Thể hình cho người làm văn phòng sẽ là liều thuốc cho những người bận rộn với công việc mà không có thời gian đến phòng tập." - Tuấn Anh
+              </p>
+
+              <div class="icon-box wow fadeInUp">
+                <div class="icon"><i class="fa fa-calendar"></i></div>
+                <h4 class="title"><a >Tốc độ ánh sáng</a></h4>
+                <p class="description">Trang web được làm trong vòng chỉ 2 tuần với đầy đủ các tính năng cơ bản. Hỗ trợ resposive phù hợp với mọi loại thiết bị.</p>
+              </div>
+
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                <div class="icon"><i class="fa fa-laptop"></i></div>
+                <h4 class="title">Giao diện thân thiện</h4>
+                <p class="description">Giao diện trực quan, dễ nhìn và sử dụng. Kho bài tập, hình ảnh, video minh họa khổng lồ đáp ứng mọi nhu cầu của người dùng.</p>
+              </div>
+
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                <div class="icon"><i class="fa fa-upload"></i></div>
+                <h4 class="title"><a >Nâng cấp lâu dài</a></h4>
+                <p class="description">Dưới sự hỗ trợ của techkids, trang web luôn được update liên tục giúp cải thiện độ tương quan, tính thân thiện đối với người dùng.</p>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+          </div>
+
+        </div>
+      </section><!-- #about -->
+
+      <!--        Portfolio Section      -->
+      <section id="portfolio">
+        <div class="container wow fadeInUp">
+          <div class="section-header">
+            <h3 class="section-title text-center">Portfolio</h3>
+            <p class="section-description text-center">Chúng tôi - C4E12 luôn mong muốn đem lại những sản phẩm tốt nhất cho người dùng</p>
+          </div>
+
+          <div class="row" id="portfolio-wrapper">
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="http://gofficer.herokuapp.com">
+                <img src="../static/img/portfolio/gofficer.jpg" alt="" style="background: cover">
+
+                <div class="details">
+                  <h4>Web 1</h4>
+                  <span>Gym for Officer</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="http://len-keo.herokuapp.com/" target="_blank">
+                <img src="../static/img/portfolio/lenkeo.jpg" alt="">
+                <div class="details">
+                  <h4>Web 2</h4>
+                  <span>Lên kèo</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="https://punishhh.herokuapp.com/" target="_blank">
+                <img src="../static/img/portfolio/punish (2).jpg" alt="">
+                <div class="details">
+                  <h4>Web 3</h4>
+                  <span>Punish</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="https://whateverr.herokuapp.com/" target="_blank">
+                <img src="../static/img/portfolio/whatever.jpg" alt="">
+                <div class="details">
+                  <h4>Web 4</h4>
+                  <span>Gì Cũng Được</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="https://drive.google.com/file/d/0BxhB26T50J29V2Q3MzMxX29aVGc/view" target="_blank">
+                <img src="../static/img/portfolio/app1.jpg" alt="">
+                <div class="details">
+                  <h4>Game 1</h4>
+                  <span>Mario ver VN</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="https://drive.google.com/file/d/0BynalFwLFBT-NlE4WHNBLVhyT0E/view" target="_blank">
+                <img src="../static/img/portfolio/app2.jpg" alt="">
+                <div class="details">
+                  <h4>Game 2</h4>
+                  <span>Ping pong knight</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="https://drive.google.com/file/d/0B0AfjdR5Qce7YVdTdUdLNXoteEE/view9" target="_blank">
+                <img src="../static/img/portfolio/app3.jpg" alt="">
+                <div class="details">
+                  <h4>Game 3</h4>
+                  <span>Tay đua tử thần</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 portfolio-item">
+              <a href="https://drive.google.com/file/d/0B2GH3A1_5dW4ZEZhVXNQSEpPdkk/view" target="_blank">
+                <img src="../static/img/portfolio/game4.jpg" alt="">
+                <div class="details">
+                  <h4>Game 4</h4>
+                  <span>Phi dao</span>
+                </div>
+              </a>
+            </div>
+
+
+          </div>
+
+        </div>
+      </section><!-- #portfolio -->
+
+      <!--        Team Section      -->
+      <section id="team">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="section-title text-center">Team</h3>
+            <p class="section-description text-center">Theo dõi các thành viên để cập nhật những tin tức mới nhất</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+              <div class="member">
+                <div class="pic"><img src="../static/img/linh.jpg" alt=""></div>
+                <h4>Linh Nguyen Ngoc</h4>
+                <span>Leader & Back-end Developer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=100004063710541"><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+              <div class="member">
+                <div class="pic"><img src="../static/img/truong.jpg" alt=""></div>
+                <h4>Truong Tran Xuan</h4>
+                <span>Database Developer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/truongcan994"><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+              <div class="member">
+                <div class="pic"><img src="../static/img/thanh.jpg" alt=""></div>
+                <h4>Thanh Le Van</h4>
+                <span>Front-end & Back-end Developer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/thanh.bep.vu.tay"><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+              <div class="member">
+                <div style="background: cover" class="pic"><img  src="../static/img/trang.jpg" alt=""></div>
+                <h4>Dang N.Phuong Trang</h4>
+                <span>Tester & PO </span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/paint.my.life.over.and.over"><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+              <div class="member">
+                <div class="pic"><img src="../static/img/quy.jpg" alt=""></div>
+                <h4>Quy Dinh Cong</h4>
+                <span>Full-stack Developer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/akashi.211"><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+              <div class="member">
+                <div class="pic"><img src="../static/img/tuananh.jpg" alt=""></div>
+                <h4>Tuan Anh Nguyen</h4>
+                <span>Database Developer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/tuananhapd"><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- #team -->
+
+      <!--        Contact Section      -->
+      <section id="contact">
+        <div class="container wow fadeInUp">
+          <div class="section-header">
+            <h3 class="section-title text-center" style="">Contact</h3>
+            <p class="section-description text-center">Liên hệ với chúng tôi để phản hồi </p>
+          </div>
+        </div>
+        <div id='map' style="margin-bottom: 20px;">
+
+        </div>
+        <div class="container wow fadeInUp">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4">
+              <div class="info">
+                <div>
+                  <i class="fa fa-map-marker"></i><p>22C Thành Công<br>Ba Đình, Hà Nội</p>
+                </div>
+                <div>
+                  <i class="fa fa-envelope"></i><p>info@gofficervn.com</p>
+                </div>
+                <div>
+                  <i class="fa fa-phone"></i><p>+1 113 115 119</p>
+                </div>
+              </div>
+              <div class="social-links">
+                <a href="https://twitter.com/?request_context=signup" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/GOfficer-Vietnam-1746802408677342/?modal=admin_todo_tour" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/gofficervn/?hl=vi" target="_blank"class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="https://plus.google.com/117973475400600292621"target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                <a href="https://www.linkedin.com/in/gofficer-vietnam-393000154/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-5 col-md-8">
+              <div class="form">
+                <form action="" method="post" role="form" class="contactForm">
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="text-center"><button class="btn btn-success" type="submit">Send Message</button></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- #contact -->
+    </main>
+
+    <!--  Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          <p style="margin-bottom: 0px">&copy; Copyright GOfficer 2017. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer><!-- #footer -->
+
+    <script>
+      function initMap() {
+        var uluru = {lat: 21.022407, lng: 105.815986};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBayB9OVR61xgxUV5-itTWe6hOIsSn7d_0&callback=initMap">
+    </script>
+    <script>
+
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+          if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+              document.getElementById("myBtn").style.display = "block";
+          } else {
+              document.getElementById("myBtn").style.display = "none";
+          }
+      }
+      var timeOut;
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+          window.scrollBy(0,-50);
+          timeOut=setTimeout('topFunction()',10);
+        }
+        else clearTimeout(timeOut);
+      }
+
+
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-localScroll/2.0.0/jquery.localScroll.min.js"></script>
+    <script>
+      $('.nav-menu').localScroll();
+    </script>
+    <script>
+    new WOW().init();
+    </script>
+
+  </body>
+</html>
