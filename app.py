@@ -1,9 +1,17 @@
 from flask import *
 import mlab
+from pagination import Pagination
 from mongoengine import *
+from flask_pymongo import PyMongo, pymongo
+import random
 
 
 app = Flask(__name__)
+
+app.config['MONGO_DBNAME'] = "goficer"
+app.config['MONGO_URI'] = 'mongodb://admin:admin@ds241395.mlab.com:41395/goficer'
+
+mongo = PyMongo(app)
 
 mlab.connect()
 
@@ -15,48 +23,82 @@ class BaiTap(Document):
     description = StringField()
     image = ListField(StringField())
     clip = StringField()
-# baitap = BaiTap(
-# name="Xoay khớp cổ",
-# time=20,
-# purpose=" Giúp bạn thả lỏng cơ xương vùng cổ, thư giãn và khôi phục trạng thái mệt mỏi.",
-# space="Tại chỗ",
-# description="Bạn hãy ngồi thẳng,hai tay buông thả lỏng,từ từ nghiêng toàn bộ đầu về bên trái , phải,sau đó lại từ từ về vị trí đầu thẳng,Bạn từ từ cúi đầu xuống, thật chậm. Sau đó là ngóc đầu lên về tư thế thẳng với thân người. Chú ý, không ngửa đầu ra sau, có thể làm đau hơn",
-# image="https://drive.google.com/open?id=0Bxg-fKHz6ZdFeGt0RVVpUWdRQmc",
-# clip="https://youtu.be/subTIsB2Ca0")
-# baitap.save()
 
 
-@app.route('/')
+
+@app.route('/', methods = ['GET', 'POST'])
 def index():
+    list_bg = ['static/image/homepage/1.jpg','static/image/homepage/2.jpg', 'static/image/homepage/3.jpg','static/image/homepage/4.jpg','static/image/homepage/5.jpg', 'static/image/homepage/6.jpg','static/image/homepage/7.jpg']
 
-    # ex = BaiTap.objects()
-    return render_template('homepage.html')
+    random_bg = random.choice(list_bg)
 
-@app.route('/search', methods=['POST'])
+    random_baitap = random.choice(BaiTap.objects())
+    random_id = random_baitap.id
+    return render_template('homepage.html',random_bg = random_bg, random_id = random_id)
+
+@app.route('/numbers', methods= ['GET'])
+def numbers():
+
+    number = mongo.db.bai_tap
+
+    offset = int(request.args['offset'])
+    limit = int(request.args['limit'])
+
+    starting_id = number.find().sort('_id', pymongo.ASCENDING)
+
+    last_id = starting_id[offset]['_id']
+
+    gofficer = number.find({'_id' : {'$gte' : last_id}}).sort('_id', pymongo.ASCENDING).limit(limit)
+
+    output= []
+
+    for i in gofficer:
+        output.append({'time' : i['time'], 'purpose' : i['purpose'], 'name' : i['name']} )
+
+    prev_url = '/numbers?limit=' + str(limit) + '&offset=' +str(offset-limit)
+    next_url = '/numbers?limit=' + str(limit) + '&offset=' +str(offset+limit)
+    return jsonify({'result' : output, 'prev_url' : prev_url, 'next_url': next_url})
+
+
+@app.route('/search', methods=['GET','POST'])
 def search():
-    time = request.form["time"]
-    purpose = request.form["purpose"]
-    space = request.form["space"]
 
-    if request.form["time"] == '0' and request.form["purpose"] =="0" and request.form["space"] == '0':
+    list_bg = ['/static/image/search/1.jpg','/static/image/search/2.jpg','/static/image/search/3.jpg']
+
+    random_bg = random.choice(list_bg)
+    random_baitap = random.choice(BaiTap.objects())
+    random_id = random_baitap.id
+
+    if request.method == 'POST':
+        time = request.form["time"]
+        purpose = request.form["purpose"]
+        space = request.form["space"]
+
+        if request.form["time"] == 'all' and request.form["purpose"] =="all" and request.form["space"] == 'all':
+            listbaitap = BaiTap.objects()
+        elif request.form["time"] == "all" and request.form["purpose"] =="all" and request.form["space"] != "all":
+            listbaitap = BaiTap.objects(space = space)
+        elif request.form["time"] == "all" and request.form["purpose"] !="all" and request.form["space"] == "all":
+            listbaitap = BaiTap.objects(purpose = purpose)
+        elif request.form["time"] != "all" and request.form["purpose"] =="all" and request.form["space"] == "all":
+            listbaitap = BaiTap.objects(time = time)
+        elif request.form["time"] != "all" and request.form["purpose"] !="all" and request.form["space"] == "all":
+            listbaitap = BaiTap.objects(time = time, purpose = purpose)
+        elif request.form["time"] != "all" and request.form["purpose"] =="all" and request.form["space"] != "all":
+            listbaitap = BaiTap.objects(time = time, space = space)
+        elif request.form["time"] == "all" and request.form["purpose"] !="all" and request.form["space"] != "all":
+            listbaitap = BaiTap.objects(purpose = purpose, space = space)
+        else:
+            listbaitap = BaiTap.objects(time=time, purpose = purpose, space = space)
+
+
+        dem = len(listbaitap)
+
+        return render_template("ketqua_new.html", listbaitap = listbaitap,random_bg=random_bg, dem= dem, random_id= random_id)
+    elif request.method == 'GET':
         listbaitap = BaiTap.objects()
-    elif request.form["time"] == "0" and request.form["purpose"] =="0" and request.form["space"] != "0":
-        listbaitap = BaiTap.objects(space = space)
-    elif request.form["time"] == "0" and request.form["purpose"] !="0" and request.form["space"] == "0":
-        listbaitap = BaiTap.objects(purpose = purpose)
-    elif request.form["time"] != "0" and request.form["purpose"] =="0" and request.form["space"] == "0":
-        listbaitap = BaiTap.objects(time = time)
-    elif request.form["time"] != "0" and request.form["purpose"] !="0" and request.form["space"] == "0":
-        listbaitap = BaiTap.objects(time = time, purpose = purpose)
-    elif request.form["time"] != "0" and request.form["purpose"] =="0" and request.form["space"] != "0":
-        listbaitap = BaiTap.objects(time = time, space = space)
-    elif request.form["time"] == "0" and request.form["purpose"] !="0" and request.form["space"] != "0":
-        listbaitap = BaiTap.objects(purpose = purpose, space = space)
-    else:
-        listbaitap = BaiTap.objects(time=time, purpose = purpose, space = space)
-
-    return render_template("ketqua_new.html", listbaitap = listbaitap)
-
+        dem = len(listbaitap)
+        return render_template("ketqua_new.html", listbaitap = listbaitap,random_bg=random_bg, dem= dem, random_id= random_id)
 @app.route("/access")
 def access():
     return render_template("access.html")
@@ -64,7 +106,7 @@ def access():
 @app.route("/admin", methods =["POST"])
 def admin():
     listbaitap = BaiTap.objects()
-    if request.form["email"]== "admin" and request.form["pass"] =="admin":
+    if request.form["email"]== "admin" and request.form["pass"] =="244466666":
         return render_template('admin.html',listbaitap = listbaitap)
     else:
         return render_template("homepage.html")
@@ -92,11 +134,21 @@ def adbaitap():
         return render_template('admin.html', listbaitap = listbaitap)
 
 
-@app.route('/baitap/<baitap_id>', methods=["GET"])
+@app.route('/baitap/<baitap_id>', methods=["GET", 'POST'])
 def baitap(baitap_id):
     baitap = BaiTap.objects().with_id(baitap_id)
 
-    return render_template('baitap_new.html', baitap= baitap)
+    time = baitap.time
+    purpose = baitap.purpose
+
+    similar_baitap = [d for d in BaiTap.objects() if d['time']==time and d['purpose']==purpose]
+
+    for i in similar_baitap:
+        if i== baitap:
+            similar_baitap.remove(i)
+
+
+    return render_template('baitap_final.html', baitap= baitap, similar_baitap = similar_baitap)
 
 @app.route('/deletebaitap/<baitap_id>')
 def deletebaitap(baitap_id):
@@ -139,7 +191,7 @@ def donate():
     return render_template("donate.html")
 @app.route("/aboutus")
 def about():
-    return render_template("about.html")
+    return render_template("aboutus.html")
 
 if __name__ == '__main__':
   app.run(debug=True)

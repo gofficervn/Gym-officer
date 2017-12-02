@@ -1,19 +1,19 @@
 body {
     font-family: 'Montserrat', sans-serif;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
 .header-nightsky {
     color: #ffffff;
-    background: url("https://images5.alphacoders.com/711/thumb-1920-711085.jpg") no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    padding-bottom: 100px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .header-nightsky .navbar-nav>li>a {
     color: #ffffff;
-    font-size: 18px;
-    border-radius: 10px;
+    font-size: 20px;
 }
 
 .header-nightsky .navbar {
@@ -45,7 +45,7 @@ body {
 }
 
 .header-nightsky .navbar-nav {
-   margin-top: 12px;
+   margin-top: 15px;
 }
 
 .header-nightsky .navbar-toggle {
@@ -55,14 +55,15 @@ body {
 }
 
 .header-nightsky .navbar-toggle .icon-bar {
-    background-color: black;
+    background-color: white;
 }
 
 .header-nightsky .navbar-brand {
     color: #ffffff;
-    font-size: 50px;
+    font-size: 60px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .header-nightsky .navbar-brand:hover {
@@ -71,48 +72,34 @@ body {
 
 .header-nightsky .hero {
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: 100px;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 
 .header-nightsky .hero h1 {
     color: #ffffff;
-    font-weight: bold;
-    font-size: 60px;
+    font-weight: 700;
+    font-size: 65px;
     margin-bottom: 36px;
 }
 
 
 .header-nightsky .hero p {
-    color: #efefe;
+    color: whitesmoke;
     font-size: 22px;
     max-width: 660px;
     margin: 0 auto 20px;
-    font-weight: normal;
-    line-height: 1.5;
-}
-
-.header-nightsky .btn-primary {
-    color: #fff;
-    background-color: transparent;
-    border-color: #fffbfb !important;
-    outline:none;
-    margin-right: 20px;
-    margin-top: 20px;
-    font-size: 24px;
-    padding: 18px 24px;
-    transition:0.2s background-color;
-}
-
-.header-nightsky .btn-primary:hover {
-    background-color:rgba(255,255,255,0.1);
-}
-
-.header-nightsky .btn-primary:active {
-    transform:translateY(1px);
+    font-weight: 400;
+    line-height: 1;
 }
 
 @media screen and (max-width: 767px) {
+    .header-nightsky .navbar-brand {
+        color: #ffffff;
+        font-size: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 
     .header-nightsky .navbar-default .navbar-nav .open .dropdown-menu>li>a{
         color: #ccc;
@@ -135,7 +122,14 @@ body {
     }
 
     .header-nightsky .hero h1{
-        font-size: 42px;
+        font-size: 32px;
+    }
+    .header-nightsky .hero p{
+        font-size: 16px;
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 0px;
     }
 }
 .no-padding {
@@ -184,3 +178,43 @@ select#space {
 .img-thumbnail {
   background: transparent;
 }
+
+
+/*      FOOTER CSS       */
+
+#myFooter {
+    background-color: transparent;
+    color: white;
+    padding-top: 30px;
+  clear: both;
+}
+
+#myFooter .footer-copyright {
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+
+#myFooter .footer-copyright h4 {
+    margin: 10px;
+    color: #ccc;
+
+
+}
+
+
+@media screen and (max-width: 767px) {
+    #myFooter {
+        text-align: center;
+    }
+}
+
+h3 {
+  color: whitesmoke;
+  font-size: 22px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+/* auto footer on bottom  */

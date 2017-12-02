@@ -2,32 +2,19 @@
 <html>
 
 <head>
-    <title>Header</title>
+    <title>GOfficer - Gym for Officer</title>
+    <link rel="shortcut icon" href="../static/image/GOfficer (2).png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/header-big.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    <!-- <script type="text/javascript"> -->
-         <!--
-            function sayHello() {
-               var password = prompt("Enter password to access you are admin", "");
-               if (password == "123456")
-               {
-                 document.getElementById("demo").innerHTML = '<button type="submit" class="btn btn-danger">Login Success</button>';
-               }
-               else {
-                 alert("Sai rồi");
-               }
-            }
-         //-->
-      <!-- </script> -->
-
+    <!-- Libraries CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
 </head>
-
-<body>
+<body style="background: url({{random_bg}}) center;">
     <div class="header-nightsky">
         <nav class="navbar navbar-default">
             <div class="container">
@@ -41,20 +28,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{url_for('about')}}">ABOUT US</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELP <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a type="button" href="{{url_for('access')}}" >Admin</a></li>
-                                <!-- data-toggle="modal" data-target="#myModal" cái này thuộc thẻ a, admin-->
-                                <li><a href="{{url_for('donate')}}">Donate</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{url_for('about')}}">About Us</a></li>
+                        <li><a href="{{url_for('donate')}}">Donate</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="hero">
+<<<<<<< Updated upstream
             <h1>Gym for Officer</h1>
             <p>" There are two types of pain in life</p>
             <p>the pain of discipline and the pain of regret "</p>
@@ -62,56 +43,81 @@
             <!-- <div class="btn btn-primary">Learn more about us</div>
             <div class="btn btn-primary">Contact us</div> -->
             <br><br>
+=======
+            <h1 class="wow zoomInDown" style="animation-delay: 500ms;">Gym for Officer</h1>
+            <p class="">" There are two types of pain in life</p>
+            <p class="">the pain of discipline and the pain of regret "</p>
+>>>>>>> Stashed changes
 
-              <div class="container-fluid">
+            <br>
+
+              <div class="container-fluid wow pulse">
                 <form class="" action="/search" method="post">
-                <div class="col-md-1"></div>
-                <div class="col-md-3 no-padding">
-                  <select id="time" name="time" class="form-control input-lg" placeholder="Thời gian" onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('search-btn').click()">
-                    <option value="0" >Thời gian</option>
-                    <option value="1 phút">1 phút</option>
-                    <option value="3 phút">3 phút</option>
-                    <option value="5 phút">5 phút</option>
-                    <option value="More">More</option>
-                  </select>
-                </div>
-                <div class="col-sm-12 col-md-3 no-padding">
-                  <select id="purpose" name="purpose" class="form-control input-lg" placeholder="Mục đích" onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('search-btn').click()">
-                    <option value="0">Mục đích</option>
-                    <option value="Đau chân">Đau chân</option>
-                    <option value="Đau cổ">Đau cổ</option>
-                    <option value="Đau lưng">Đau lưng</option>
-                    <option value="Đau tay">Đau tay</option>
-                  </select>
-                </div>
-                <div class="col-sm-12 col-md-3 no-padding">
-                  <select id="space" name="space" class="form-control input-lg" placeholder="Không gian" onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('search-btn').click()">
-                    <option value="0">Không gian tập</option>
-                    <option value ="Tại chỗ">Tại bàn làm việc</option>
-                    <option value="Ngoài sảnh">Ngoài sảnh</option>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-3 no-padding">
+                    <select id="time" name="time" class="form-control input-lg" placeholder="Thời gian" onkeydown = "if (event.keyCode == 13)
+                          document.getElementById('search-btn').click()">
+                      <option value="all" >Thời gian</option>
+                      <option value="1 phút">1 phút</option>
+                      <option value="3 phút">3 phút</option>
+                      <option value="5 phút">5 phút</option>
+                      <option value="More">More</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-3 no-padding">
+                    <select id="purpose" name="purpose" class="form-control input-lg" placeholder="Mục đích" onkeydown = "if (event.keyCode == 13)
+                          document.getElementById('search-btn').click()">
+                      <option value="all">Loại bệnh</option>
+                      <option value="Đau chân">Đau chân</option>
+                      <option value="Đau cổ">Đau cổ</option>
+                      <option value="Đau lưng">Đau lưng</option>
+                      <option value="Đau tay">Đau tay</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-3 no-padding">
+                    <select id="space" name="space" class="form-control input-lg" placeholder="Không gian" onkeydown = "if (event.keyCode == 13)
+                          document.getElementById('search-btn').click()">
+                      <option value="all">Không gian tập</option>
+                      <option value ="Tại chỗ">Tại bàn làm việc</option>
+                      <option value="Ngoài sảnh">Ngoài sảnh</option>
 
-                    <option value="WC">WC</option>
-                  </select>
-                </div>
-                <div class="col-sm-12 col-md-1 no-padding">
-                  <button id="search-btn" type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
+                      <option value="WC">WC</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-1 no-padding">
+                    <button id="search-btn" type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
 
-                </div>
-                <div class="col-md-1"></div>
+                  </div>
+                  <div class="col-md-1"></div>
                 </form>
               </div>
+              <div class="align-content-center">
 
+                <form class="" action="{{url_for('baitap', baitap_id = random_id )}}" method="post">
+                  <h3>Confused to select? Let's random!</h3>
+
+                  <button class="btn btn-danger btn-lg" type="submit" name="button">
+                    <i class="fa fa-random fa-lg" aria-hidden="true"></i>
+                  </button>
+                </form>
+
+              </div>
 
         </div>
+        <footer id="myFooter">
+            <div class="footer-copyright">
+                <h5> Copyright © GOfficer 2017. All Rights Reserved.</h5>
+            </div>
+        </footer>
     </div>
+
+    <!-- Footer -->
+
+
 
 
     <!-- Large modal -->
-
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
       <div class="modal-dialog" role="document">
@@ -140,16 +146,20 @@
         </div>
       </div>
     </div>
+<<<<<<< Updated upstream
 
 
 
 
 
+=======
+>>>>>>> Stashed changes
     <script>
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').focus()
     })
     </script>
+<<<<<<< Updated upstream
 
 
     <!-- <script type="text/javascript">
@@ -162,8 +172,14 @@
     });
     </script> -->
 
+=======
+>>>>>>> Stashed changes
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+    new WOW().init();
+    </script>
 </body>
 
 </html>

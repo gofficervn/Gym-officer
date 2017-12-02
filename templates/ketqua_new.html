@@ -3,15 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Kết quả tìm kiếm</title>
+    <link rel="shortcut icon" href="../static/image/GOfficer (2).png"/>
+    <meta name="viewport" content="width = device-width, initial-scale= 1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
   <body class="body">
+    <button onclick="topFunction();return false" id="myBtn" title="Go to top">
+      <i class="fa fa-chevron-circle-up fa-2x" aria-hidden="true"></i>
+    </button>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-top: 0px;padding-bottom: 0px;">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index')}}">GOfficer</a>
+            <a class="navbar-brand " href="{{ url_for('index')}}">GOfficer</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,7 +25,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <h1 class="mr-auto"></h1>
                 <ul class="nav navbar-nav">
-                    <li><a class="nav-item nav-link" href="{{url_for('about')}}" style="color: white;">ABOUT US</a></li>
+                    <li><a class="nav-item nav-link " href="{{url_for('about')}}" style="color: white;">ABOUT US</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">HELP <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -31,16 +37,16 @@
             </div>
         </div>
     </nav>
-    <div class="hero">
-      <h2></h2>
-      <div class="container" id="search-blur">
+    <div class="hero" style="background: url({{random_bg}}) bottom no-repeat;">
+      <div class="container-fluid" id="search-blur">
+        <br><br>
         <h1 class="text-center" style="font-family: 'Montserrat', sans-serif; ">Search and Do It!</h1>
-        <form class="" action="/search" method="post">
-          <div class="col-md-1 float-left"></div>
-          <div class="col-md-3 no-padding float-left input-group-lg">
+        <form class="" action="{{url_for('search')}}" method="post">
+          <div class="col-md-1 col-sm-12 float-left"></div>
+          <div class="col-md-3 col-sm-12 no-padding float-left input-group-lg">
             <select id="time" name="time" class="form-control" placeholder="Thời gian" onkeydown = "if (event.keyCode == 13)
                   document.getElementById('search-btn').click()">
-              <option value="0" >Thời gian</option>
+              <option value="all" >Thời gian</option>
               <option value="1 phút">1 phút</option>
               <option value="3 phút">3 phút</option>
               <option value="5 phút">5 phút</option>
@@ -50,7 +56,7 @@
           <div class="col-sm-12 col-md-3 no-padding float-left input-group-lg">
             <select id="purpose" name="purpose" class="form-control" placeholder="Mục đích" onkeydown = "if (event.keyCode == 13)
                   document.getElementById('search-btn').click()">
-              <option value="0">Mục đích</option>
+              <option value="all">Loại bệnh</option>
               <option value="Đau chân">Đau chân</option>
               <option value="Đau cổ">Đau cổ</option>
               <option value="Đau lưng">Đau lưng</option>
@@ -60,50 +66,96 @@
           <div class="col-sm-12 col-md-3 no-padding float-left input-group-lg">
             <select id="space" name="space" class="form-control" placeholder="Không gian" onkeydown = "if (event.keyCode == 13)
                   document.getElementById('search-btn').click()">
-              <option value="0">Không gian tập</option>
+              <option value="all">Không gian tập</option>
               <option value ="Tại chỗ">Tại bàn làm việc</option>
               <option value="Ngoài sảnh">Ngoài sảnh</option>
 
               <option value="WC">WC</option>
             </select>
           </div>
-          <div class="col-sm-12 col-md-1 no-padding float-left">
-            <button id="search-btn" type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
+          <div class="col-sm-12 col-md-1 no-padding float-left" style="text-align: center">
+            <button style="margin-bottom: 10px" id="search-btn" type="submit" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="col-md-1"></div>
+          <div class="col-md-1 col-sm-12"></div>
         </form>
+        <h3 class="text-center text-light">Confused to select? Let's random!</h3>
+        <form class="" action="{{url_for('baitap', baitap_id = random_id )}}" method="post">
+          <div class="col-md-5 float-left"></div>
+          <div class="col-md-2 float-left">
+            <button class="btn btn-danger btn-lg" type="submit" name="button" style="width: 100%">
+              <i class="fa fa-random fa-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="col-md-5"></div>
+        </form>
+        <br><br><br>
+        <p class="text-center text-light" style="font: 18px;">Rencent search: {{ request.form["time"] }}, {{ request.form["purpose"] }}, {{ request.form["space"] }} </p>
       </div>
-      <h3>&nbsp;</h3>
     </div>
     <div class="backgrd">
       <div class="container">
         <br>
-        <h1>Kết quả tìm kiếm: </h1>
         <br>
-        <div class="row container-fluid">
-          <div class="container backgrd">
-            {% for baitap in listbaitap %}
+        <div  class="row container-fluid" style="width:auto; padding: 0">
+          <div class="container backgrd ">
 
-            <div class="col-sm-12 col-md-4 float-left" style="padding-bottom: 10px;">
-              <div class="card" style="width: 20rem;">
-                <a href="baitap/{{baitap.id}}"><img  class="card-img-top" src="{{baitap.image[0]}}" alt="Card image cap"></a>
+            <div class="col-md-4 float-left">
+              <div class=" card border-danger">
+                {% if dem != 1: %}
+                <h5 class="card-header" stlye="font-weight: 700;"><b>Found {{ dem }} exercises for</b></h5>
+                {% else: %}
+                <h5 class="card-header" stlye="font-weight: 700;"><b>Found 1 exercise for</b></h5>
+                {% endif %}
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Thời gian: {{ request.form["time"] }}</li>
 
-                <div class="card-body">
-                  <div class="card-header">
-                    <a href="baitap/{{baitap.id}}"><h4 class="text-primary">Động tác: {{baitap.name}}</h4></a>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Thời gian: {{baitap.time}}</li>
-                    <li class="list-group-item">Không gian: {{baitap.space}}</li>
-                    <li class="list-group-item">Loại bệnh: {{baitap.purpose}}</li>
-                  </ul>
+                  <li class="list-group-item">Loại bệnh: {{ request.form["purpose"] }}</li>
+                  <li class="list-group-item">Không gian: {{ request.form["space"] }}</li>
+                </ul>
 
-
-                </div>
               </div>
+
+              {% if dem != 1: %}
+              <hr>
+                <div class="ad-fb">
+                  Follow us on facebook:
+                  <iframe    src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F1746802408677342&width=600&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435"
+                  scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:100%; height:140px; background: white; float:left; " allowTransparency="true">
+                  </iframe>
+                </div>
+              {% endif %}
+
+              <br><br>
             </div>
-            {% endfor %}
+            <div class="col-md-8 float-left bg-light border-danger" style="border: 1px solid lightgrey;padding-top: 20px; border-radius: 4px;">
+
+              {% for baitap in listbaitap %}
+
+                <div class="media">
+                  <a href="/baitap/{{baitap.id}}">
+                    <div class="wrapper d-flex mr-3">
+                      <div class=" im1" style="background-image: url('{{baitap.image[0]}}');">
+                      </div>
+                    </div>
+                  </a>
+
+                  <div class="media-body">
+                    <h5 class="mt-0 "><a class="text-danger" style="text-decoration: none" href="/baitap/{{baitap.id}}"><b>Động tác: {{baitap.name}}</b></a></h5>
+                    <p style="height: 45px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;"><i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp; <i>{{baitap.time}}</i> &nbsp; <i class="fa fa-home" aria-hidden="true"></i> &nbsp; <i>{{baitap.space}}</i>
+                      &nbsp; <i class="fa fa-heartbeat" aria-hidden="true"></i> &nbsp; <i>{{baitap.purpose}}</i>
+                      <br>
+                      Hướng dẫn tập: {{baitap.description}}</p>
+
+                  </div>
+                </div>
+                <a style="" class="float-right text-danger wow slideInLeft" href="/baitap/{{baitap.id}}"><i><i class=" fa fa-angle-double-right" aria-hidden="true"></i>Xem chi tiết</i></a>
+                <br>
+                <hr>
+
+              {% endfor %}
+            </div>
+
           </div>
         </div>
 
@@ -114,7 +166,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-
                     <h2 class="logo" ><a href="{{url_for('index')}}"><img style="height: 180px;" src="../../static/image/GOfficer (2).png" alt=""> </a></h2>
                 </div>
                 <div class="col-sm-2">
@@ -151,10 +202,46 @@
             <p> Copyright © GOfficer 2017.</p>
         </div>
     </footer>
-    
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-localScroll/2.0.0/jquery.localScroll.min.js"></script>
+
+    <script>
+
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+              document.getElementById("myBtn").style.display = "block";
+          } else {
+              document.getElementById("myBtn").style.display = "none";
+          }
+      }
+      var timeOut;
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+          window.scrollBy(0,-50);
+          timeOut=setTimeout('topFunction()',10);
+        }
+        else clearTimeout(timeOut);
+      }
+
+
+    </script>
+    <script>
+      $('#myBtn').scrollTo();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+    new WOW().init();
+    </script>
   </body>
 </html>

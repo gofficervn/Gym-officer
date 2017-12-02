@@ -62,15 +62,15 @@
 
 .hero {
 
-    background: url("https://c.s-microsoft.com/vi-vn/CMSImages/Hero_O365ForBusiness_1920x560.jpg?version=ba714448-6c56-30ad-966b-dd62524f0c47") no-repeat;
+
     background-size: cover;
-    background-position-y: 0px;
+
 }
 .hero h2 {
   padding-top: 60px;
 }
 .hero h3 {
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   margin-bottom: 0px;
 }
 .hero h1 {
@@ -84,7 +84,7 @@
 
 .hero p {
     color: #efefe;
-    font-size: 22px;
+    font-size: 14px;
     max-width: 660px;
     margin: 0 auto 20px;
     font-weight: normal;
@@ -109,13 +109,26 @@
         box-shadow: none;
     }
 
-    .hero{
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
     .hero h1{
-        font-size: 42px;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+    .hero h3 {
+      font-size: 17px;
+      padding-bottom: 10px;
+    }
+    .media {
+      display: block;
+    }
+    .wrapper {
+      width: 100% !important;
+
+    }
+    h5 {
+      padding-top: 10px;
+    }
+    .ad-fb {
+      display: none;
     }
 }
 
@@ -167,22 +180,13 @@ select#space {
 }*/
 
 #search-blur {
-  padding: 20px;
-  padding-bottom: 70px;
-  background: rgba(34,34,34,0.75);
 
-}
-
-.card {
-  height: 470px;
-
-}
-
-.card-img-top {
-  /*background-size: contain;*/
-  height: 200px;
+  padding-bottom: 10px;
   width: 100%;
+  background: rgba(34,34,34,0.5);
+
 }
+
 
 .backgrd {
   background-color: whitesmoke;
@@ -306,4 +310,51 @@ select#space {
     #myFooter {
         text-align: center;
     }
+
+    #myFooter ul {
+        display: none;
+    }
+
+    #myFooter h5 {
+        display: none;
+    }
+}
+
+
+.wrapper {
+    width:200px;
+    height:100px;
+    position: relative;
+    background-color: black;
+}
+.im1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 999;
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0, 0.5);
+  color: white;
+  cursor: pointer;
+  padding: 3px 20px;
+  border-radius: 5px;
+}
+
+#myBtn:hover {
+  background-color: rgba(0,0,0, 0.5);
 }
